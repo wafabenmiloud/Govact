@@ -1,0 +1,15 @@
+.service__card{
+    padding: 15%;
+    text-align: center;
+
+}
+.service__card:hover{
+    box-shadow: 0 0 10px 4px black;
+    border-radius: 20%;
+}
+.card__title{
+    color: black;
+}
+.card__title:hover{
+    text-decoration: underline;
+}

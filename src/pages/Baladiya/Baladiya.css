@@ -1,0 +1,41 @@
+.wrapper{
+    display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 5%;
+  direction: rtl;
+  margin-right: 5%;
+}
+.sec{
+    display: grid;
+    grid-template-columns:1fr 4fr;
+    margin-bottom: 3%;
+    margin-top: 3%;
+
+}
+.im{
+  width: 70%;
+  margin-left: 10%;
+}
+.desc{
+    width: 90%;
+  text-align: right;
+}
+@media screen and (max-width:1024px) {
+ 
+    .sec{
+        display: flex;
+        margin-bottom: 3%;
+        margin-top: 3%;
+    margin-left: 5%;    }
+    .im{
+      width: 0;
+      margin-left: 0;
+      visibility: hidden;
+    }
+    .desc{
+        width: 90%;
+      text-align: right;
+    }
+}

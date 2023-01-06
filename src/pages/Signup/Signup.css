@@ -1,0 +1,137 @@
+
+.body .wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap;
+
+  height: 100vh;
+}
+.body .navbar_home {
+  color: var(--color-bg);
+  font-size: xx-large;
+  padding: 3rem;
+}
+.body .navbar_home:hover {
+  color: var(--color-primary);
+}
+.body .wrapper .llogo,
+.body .wrapper .rlogo {
+  width: 30%;
+  padding: 1rem;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.body .wrapper .llogo img,
+.body .wrapper .rlogo img {
+  width: 15rem;
+  height: 15rem;
+}
+.body .wrapper .card {
+  width: 40%;
+  background-color: white;
+  box-shadow: 0 0 20px 8px var(--color-bg);
+}
+.body .wrapper .card h1 {
+  text-align: center;
+  color: var(--color-bg);
+  padding-bottom: 4%;
+  padding-top: 4%;
+}
+.body .wrapper form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.body .wrapper form .form__element {
+  width: 100%;
+  padding: 2%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.body .wrapper form .form__element input {
+  width: 80%;
+  height: 3rem;
+  border: none ;
+  box-shadow: 0 0 20px 8px #e6f4f1;
+
+}
+.body .wrapper form .form__element h4 {
+  height: 2rem;
+  width: 100%;
+  text-align: right;
+  font-size: 90%;
+  color: var(--color-bg);
+}
+.body .wrapper form button {
+  width: 50%;
+  padding: 1%;
+  background-color: transparent;
+  border: 1px solid var(--color-bg);
+}
+.body .wrapper form button:hover{
+    background-color: var(--color-bg);
+    cursor: pointer;
+}
+.body .wrapper form .link {
+  padding: 3%;
+  color: black;
+  text-align: center;
+}
+.body .wrapper form button h4{
+    color: black;
+    text-align: center;
+    font-size: 0.8rem;
+    font-family: 'Cairo', sans-serif;
+
+}
+.body .wrapper form button:hover h4{
+    color: white;
+
+
+}
+/*===========media queries (medium devices : tablets)=======*/
+@media screen and (max-width:1024px) {
+   
+  .body .wrapper {
+        height: 80vh;
+      }
+      
+      .body .wrapper .rlogo {
+        width: 0;
+        visibility: hidden;
+      } 
+      .body .wrapper .llogo {
+        width: 40%;
+      } 
+      .body .wrapper .card {
+        width: 50%;
+      } 
+}
+/*===========media queries (small devices : phones)=======*/
+@media screen and (max-width:600px) {
+  .body .wrapper {
+        width: 100%;
+        display: block;
+      }
+      .body .wrapper .rlogo {
+        width: 0;
+        visibility: hidden;
+      } 
+      .body .wrapper .llogo {
+        width: 100%;
+        margin-bottom: 4%;
+      }
+      .body .wrapper .llogo img {
+        height: 12rem;
+      }
+      .body .wrapper .card {
+        width: 100%;
+      }
+}

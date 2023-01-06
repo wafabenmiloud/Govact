@@ -1,0 +1,18 @@
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    direction: rtl;
+    margin: 8%;
+    gap: 4rem;
+    margin-bottom: 15%;
+}
+@media screen and (max-width:600px) {
+    .grid{
+        grid-template-columns: 1fr;
+    }   
+}
+@media screen and (max-width:1024px) {
+    .grid{
+        grid-template-columns: 1fr 1fr;
+    }   
+}

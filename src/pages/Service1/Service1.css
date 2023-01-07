@@ -1,0 +1,34 @@
+#open__wrapper{
+    margin: 6%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    direction: rtl;
+    background-color: transparent;
+}
+#open{
+    margin: 3% 2% 3% 2%;
+    padding: 2%;
+    box-shadow: 0 0 10px 8px var(--color-bg);
+}
+#titl{
+    font-size: 130%;
+    color: var(--color-primary);
+}
+#open button{
+    background-color: transparent;
+    width: 60%;
+}
+#more{
+    font-size: 1rem;
+    color: #000;
+    text-decoration: underline;
+
+}
+
+#open button{
+    cursor: pointer;
+}
+#open img{
+margin: 3%;
+width: 60%;}

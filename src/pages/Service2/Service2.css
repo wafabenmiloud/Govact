@@ -1,0 +1,12 @@
+.wrapper{  
+    margin: 5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
+    gap: 1rem;
+    justify-content: center;}
+
+    .desc{
+        width: 80%;
+          text-align: right;
+          margin: 1% 5% 1% 11%;
+    }

@@ -6,7 +6,7 @@ import img from "../../assets/rec.jpg";
 
 export default function Reclamation() {
   return (
-    <div className="body3">
+    <div id="body3">
       <Link to="/" className="home__icon">
         <AiFillHome />
       </Link>

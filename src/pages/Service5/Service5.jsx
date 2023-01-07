@@ -13,7 +13,7 @@ export default function Service5() {
   return (
     <>
     <Header title="    خدمات على الخط" description="" img={img}/>
-    <div className="grid">
+    <div id="grid">
       <Card title="متابعة رخصة البناء " img={img1} link="/S5Service1"/>
       <Card title=" النفاذ إلى المعلومة" img={img2} link="/S5Service2"/>
       <Card title="مثال التهيئة العمرانية" img={img3} link="/S5Service3"/>

@@ -1,0 +1,24 @@
+.tab{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px 8px var(--color-bg);
+    justify-content: center;
+    margin: 5%;
+    text-align: right;
+    padding: 2%;
+}
+.head{
+    margin: 2%;
+    font-size: 100%;
+    color: var(--color-primary);
+    direction: rtl
+    ;
+}
+
+tr,td{border-top: 1px solid black;
+    border-right: 1px solid black;
+}
+.body img{
+    width: 60%;
+}
+th:hover{cursor: pointer;}

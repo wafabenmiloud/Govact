@@ -1,19 +1,19 @@
-.body3 {
+#body3 {
   background-image: url("../../assets/bbg.png");
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-.body3 .home__icon {
+#body3 .home__icon {
   color: white;
   font-size: xx-large;
   padding: 3rem;
 }
-.body3 .home__icon:hover {
+#body3 .home__icon:hover {
   color: var(--color-primary);
 }
-.body3 .wrapper {
+#body3 .wrapper {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -21,13 +21,13 @@
   flex-flow: wrap;
   height: 100vh;
 }
-.body3 .wrapper .card {
+#body3 .wrapper .card {
   width: 35%;
   background-color: transparent;
   box-shadow: 0 0 20px 8px white;
   border-radius: 20%;
 }
-.body3 .wrapper .rlogo {
+#body3 .wrapper .rlogo {
   width: 30%;
   padding: 1rem;
   display: flex;
@@ -35,23 +35,23 @@
   align-items: center;
   margin-left: 2rem;
 }
-.body3 .wrapper .rlogo img {
+#body3 .wrapper .rlogo img {
   width: 100%;
   height: 100%;
 }
-.body3 .wrapper .card h1 {
+#body3 .wrapper .card h1 {
   text-align: center;
   color: black;
   padding-bottom: 4%;
   padding-top: 4%;
 }
-.body3 .wrapper form {
+#body3 .wrapper form {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
 }
-.body3 .wrapper form .form__element {
+#body3 .wrapper form .form__element {
   width: 100%;
   padding: 2%;
   display: flex;
@@ -59,61 +59,61 @@
   flex-direction: column;
   justify-content: center;
 }
-.body3 .wrapper form .form__element input {
+#body3 .wrapper form .form__element input {
     width: 80%;
     height: 3rem;
     border: none;
   }
-  .body3 .wrapper form .form__element
+  #body3 .wrapper form .form__element
   textarea {
     width: 80%;
     height: 6rem;
     border: none;
   }
-.body3 .wrapper form .form__element h4 {
+#body3 .wrapper form .form__element h4 {
   height: 2rem;
   width: 100%;
   text-align: right;
   font-size: 90%;
   color: black;
 }
-.body3 .wrapper form button {
+#body3 .wrapper form button {
   width: 50%;
   padding: 1%;
   background-color: transparent;
   border: 1px solid black;
   margin: 2rem;
 }
-.body3 .wrapper form button:hover {
+#body3 .wrapper form button:hover {
   background-color: black;
   cursor: pointer;
 }
-.body3 .wrapper form button h4 {
+#body3 .wrapper form button h4 {
   color: black;
   text-align: center;
   font-size: 0.8rem;
   font-family: "Cairo", sans-serif;
 }
-.body3 .wrapper form button:hover h4 {
+#body3 .wrapper form button:hover h4 {
   color: white;
   background-color: black;
 }
 @media screen and (max-width: 1024px) {
-  .body3 .home__icon {
+  #body3 .home__icon {
     color: black;
   }
-  .body3 .wrapper {
+  #body3 .wrapper {
 height: 100vh;    
   }
-  .body3 .wrapper .card {
+  #body3 .wrapper .card {
     box-shadow: 0 0 20px 8px var(--color-bg);
   }
-  .body3 .wrapper .rlogo {
+  #body3 .wrapper .rlogo {
     padding: 0;
     
   }
  
-  .body3 .wrapper form .form__element
+  #body3 .wrapper form .form__element
   textarea {
   border: 1px solid black;
   }
@@ -121,16 +121,16 @@ height: 100vh;
 }
 /*===========media queries (small devices : phones)=======*/
 @media screen and (max-width: 600px) {
-  .body3 .home__icon {
+  #body3 .home__icon {
     color: var(--color-bg);
   }
-  .body3 .wrapper .card {
+  #body3 .wrapper .card {
     width: 100%;
     background-color: transparent;
     box-shadow: 0 0 20px 8px var(--color-bg);
     border-radius: 20%;
   }
-  .body3 .wrapper .rlogo {
+  #body3 .wrapper .rlogo {
     width: 0;
     visibility: hidden;
   }

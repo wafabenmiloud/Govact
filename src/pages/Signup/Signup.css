@@ -18,8 +18,8 @@
 }
 .body .wrapper .llogo,
 .body .wrapper .rlogo {
-  width: 30%;
-  padding: 1rem;
+  width: 20%;
+  padding: 0.8rem;
   background-color: transparent;
   display: flex;
   justify-content: center;

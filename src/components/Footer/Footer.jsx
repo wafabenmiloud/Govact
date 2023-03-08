@@ -15,18 +15,18 @@ import { GiMailbox } from "react-icons/gi";
 const Footer = () => {
   return (
     <>
-      <div class="modal">
-        <div class="modal__icon">
+      <div className="modal">
+        <div className="modal__icon">
           <GiMailbox />
         </div>
-        <h1 class="modal__heading"> اشترك ليصلك كل جديد </h1>
-        <div class="email-box">
+        <h1 className="modal__heading"> اشترك ليصلك كل جديد </h1>
+        <div className="email-box">
           <input
             type="email"
-            class="email-box__input"
+            className="email-box__input"
             placeholder="Email Address"
           />
-          <button type="button" class="email-box__button">
+          <button type="button" className="email-box__button">
             <AiOutlineSend />
           </button>
         </div>

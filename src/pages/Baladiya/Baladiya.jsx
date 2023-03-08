@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import "./Baladiya.css";
 import Header from "../../components/Header/Header2";
 import Footer from "../../components/Footer/Footer";
@@ -63,8 +63,8 @@ export default function Baladiya() {
        
       </div>
       <div className="sec" ref={sec1}>
-        <img className="im" src={card1}></img>
-        <p className="desc" dir="rtl" lang="ar">
+        <img className="im" src={card1} alt=""/>
+        <div className="desc" dir="rtl" lang="ar">
           <h3>تعريف البلدية</h3>
           <li>
             {" "}
@@ -101,11 +101,11 @@ export default function Baladiya() {
           <b>قسم شؤون الموظفين</b> وهو مسؤول عن كل الموظفين من حيث رواتبهم
           وإجازاتهم وحقوقهم كما يتولى منصب مدير شؤون الموظفين في العادة مساعد
           رئيس البلدية
-        </p>
+        </div>
       </div>
       <div className="sec" ref={sec2}>
-        <img className="im" src={card2}></img>
-        <p className="desc" dir="rtl" lang="ar">
+        <img className="im" src={card2} alt=""/>
+        <div className="desc" dir="rtl" lang="ar">
           <h3>المصالح البلدية</h3>
           <b> الادارة الفرعية للشؤون الادارية والاجتماعية والثقافية</b> : التصرف
           في شؤون الموظفين والعملة والحرص على رسكلة الأعوان وتقديم الخدمات
@@ -134,12 +134,12 @@ export default function Baladiya() {
           <br /> - مصلحة البستنة <br />
           <u> الادارة الفرعية للعمران</u> : <br />- مصلحة التقسيمات ورخص البناء
           <br /> - مصلحة التهيئة العمرانية والدراسات ومتابعة المشاريع
-        </p>
+        </div>
       </div>
       <div className="sec" ref={sec3}>
-        <img className="im" src={card3}></img>
+        <img className="im" src={card3}alt=""/>
 
-        <p className="desc" dir="rtl" lang="ar">
+        <div className="desc" dir="rtl" lang="ar">
           <h3>تاريخ الاحداث</h3>
           <b>تاريخ المدينة</b>
           <div>
@@ -173,12 +173,12 @@ export default function Baladiya() {
             والأمراء و تهيئة العيون لتغذية العديد من المسابح بها و حول هذه
             العيون إستقر العديد من السكان الذين جاؤوا من أماكن بعيدة للإستحمام.
           </div>
-        </p>
+        </div>
       </div>
       <div className="sec" ref={sec4}>
-        <img className="im" src={card4}></img>
+        <img className="im" src={card4} alt=""/>
 
-        <p className="desc" dir="rtl" lang="ar">
+        <div className="desc" dir="rtl" lang="ar">
           <h3>التعاون الدولي</h3>
           <li>
             التعاون الدولي هو مصطلح يطلق على الجهود المبذولة بين دول العالم من
@@ -191,7 +191,7 @@ export default function Baladiya() {
             المشتركة، يعد هذ المبدأ من القواعد الأساسية التي تقوم عليها منظمة
             الأمم المتحدة وتدعو إلى تحقيقها.
           </li>{" "}
-        </p>
+        </div>
       </div>
       <br/>
       <br/>

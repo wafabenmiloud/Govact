@@ -122,7 +122,7 @@ export default function Service3() {
                   للثمن المرجعي للمتر المربع المبني لكل صنف من أصناف العقارات
                   على النحو التالي
                 </p>
-                <img src={T1} />
+                <img src={T1} alt="" />
                 <br />
                 <u>الثمــــن</u>
                 <p>
@@ -132,7 +132,7 @@ export default function Service3() {
                 </p>
                 <p>وهي تتفاوت بحسب الخدمات المنتفع بها</p>
                 <br />
-                <img src={T2} />
+                <img src={T2} alt=""/>
                 <br />
                 <u>الاستخلاص</u>
                 <p>
@@ -223,7 +223,7 @@ export default function Service3() {
                   المناطق المحددة بمثال التهيئة العمرانية على النحو التالي:
                 </p>
                 <br />
-                <img src={T3} />
+                <img src={T3} alt="" />
               </td>
               <td>أساس المعلوم و نسبه </td>
             </tr>

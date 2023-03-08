@@ -1,71 +1,124 @@
 const dotenv = require("dotenv");
 dotenv.config();
-var jwt = require('jwt-simple')
 
-const  User  = require("../model/user");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const { User, validate, validatee } = require("../model/user");
 
-const register = async (req, res) => {
-    try {
-      if ((!req.body.fullname) || (!req.body.email) || (!req.body.password)) {
-        res.json({ success: false, msg: 'Enter all fields' });
-      } else {
-        const newUser = new User({
-          fullname: req.body.fullname,
-          email: req.body.email,
-          password: req.body.password,
-        });
-        await newUser.save();
-        res.json({ success: true, msg: 'Successfully saved' });
+const signupUser = async (req, res) => {
+  try {
+    //validation
+    const { error } = validate(req.body);
+    if (error) {
+      return res.status(400).send({ message: error.details[0].message });
+    }
+
+    //email exist or not
+    const user = await User.findOne({ email: req.body.email });
+    if (user) {
+      return res
+        .status(409)
+        .send({ message: "User with given email already Exist!" });
+    }
+
+    //hash password
+    const salt = await bcrypt.genSalt(Number(process.env.SALT));
+    const hashPassword = await bcrypt.hash(req.body.password, salt);
+
+    //save user to db
+    const savedUser = await new User({
+      ...req.body,
+      password: hashPassword,
+    }).save();
+    //sign token
+    const token = jwt.sign(
+      {
+        user: savedUser._id,
+      },
+      process.env.JWT_SECRET
+    );
+
+    // send token in a cookie
+    res
+      .cookie("token", token)
+      .status(201)
+      .send({ message: "User created successfully" });
+  } catch (error) {
+    res.status(500).send({ message: "Internal Server Error" });
+  }
+};
+const signinUser = async (req, res) => {
+  try {
+    //validation
+    const { error } = validatee(req.body);
+    if (error) {
+      return res.status(400).send({ message: error.details[0].message });
+    }
+
+    //if account not found
+    const existingUser = await User.findOne({ email: req.body.email });
+    if (!existingUser) {
+      return res.status(401).send({ message: "Invalid Email or Password" });
+    }
+
+    //if password incorrect
+    const passwordCorrect = await bcrypt.compare(
+      req.body.password,
+      existingUser.password
+    );
+    if (!passwordCorrect) {
+      return res.status(401).send({ message: "Invalid Email or Password" });
+    }
+
+    // sign the token
+    const token = jwt.sign(
+      {
+        user: existingUser._id,
+      },
+      process.env.JWT_SECRET
+    );
+
+    // send the token in a HTTP-only cookie
+    res
+      .cookie("token", token)
+      .send({ message: "logged in" });
+      
+  } catch (error) {
+    res.status(500).send({ message: "Internal Server Error" });
+  }
+};
+const logout = (req, res) => {
+  res
+    .cookie("token", "", { 
+      expires: new Date(0),
+    })
+    .send();
+};
+
+const authenticateToken = (req, res) => {
+  try {
+    const { token } = req.cookies;
+    if (!token) {
+      return res.json(false);
+    }
+    jwt.verify(token, process.env.JWT_SECRET, {}, async (err, info) => {
+      if (err) throw err;
+      const user = {
+        logged : true,
+        data: info
       }
-    } catch (err) {
-      console.error(err);
-      res.status(500).send({ message: 'Internal Server Error' });
-    }
-  };
+      res.json(user)
+    });
+
+  } catch (err) {
+    res.json(err);
+  }
   
-const login = async (req, res) => {
-    try {
-        const user = await User.findOne({ email: req.body.email });
-        if (!user) {
-            return res.status(403).send({ success: false, msg: 'User not found' });
-        }
-
-        user.comparePassword(req.body.password, (err, isMatch) => {
-            if (err || !isMatch) {
-                return res.status(403).send({ success: false, msg: 'Wrong password' });
-            }
-
-            const token = jwt.encode(user.toJSON(), process.env.SECRET);
-            res.json({ success: true, token });
-        });
-    } catch (error) {
-        console.error(error);
-        res.status(500).send({ message: 'Internal Server Error' });
-    }
 };
-
-const logged = async (req, res) => {
-    try {
-        if (!req.headers.authorization || !req.headers.authorization.startsWith('Bearer ')) {
-            return res.status(401).send({ success: false, msg: 'Unauthorized' });
-        }
-
-        const token = req.headers.authorization.split(' ')[1];
-        const decodedtoken = jwt.decode(token, process.env.SECRET);
-        const msg = {
-            fullname: decodedtoken.fullname,
-            email: decodedtoken.email,
-        };
-        return res.json({ loggedIn: true, msg });
-    } catch (error) {
-        console.error(error);
-        return res.status(500).send({ message: 'Internal Server Error' });
-    }
-};
-
 
 module.exports = {
-   register,
-   login,
-   logged,
-  };
+  signupUser,
+  signinUser,
+  logout,
+  authenticateToken,
+};

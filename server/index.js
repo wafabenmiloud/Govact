@@ -1,30 +1,25 @@
-const express = require('express')
-const cors = require('cors')
-const passport = require('passport')
-const bodyParser = require('body-parser')
 const dotenv = require('dotenv');
+const express = require('express');
+const Connection = require('./db/db');
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const Router = require('./routes/routes')
 
-const Connection = require('./config/db')
-const router = require('./routes')
-
-dotenv.config();
 const app = express();
+dotenv.config();
+app.use(express.json());
+app.use(cookieParser());
+
+//clien side origin
 app.use(cors({credentials: true, origin: ['http://localhost:3000']}));
 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+//Database
+const mongoURI = process.env.MONGODB_URI;
+Connection(mongoURI);
 
 //ROUTER
-app.use('/', router);
-
-//passport
-app.use(passport.initialize())
-require('./config/passport')(passport)
-
-//db
-MONGODB_URI=process.env.MONGODB_URI
-Connection(MONGODB_URI)
+app.use('/', Router);
 
 // server
-const PORT = process.env.PORT || 4000
-app.listen(PORT, console.log(`Server running on port ${PORT}`))
+const PORT = 2000;
+app.listen(PORT, () => console.log(`Server is running successfully on PORT ${PORT}`));

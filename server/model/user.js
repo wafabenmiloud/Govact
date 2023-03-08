@@ -1,48 +1,32 @@
-const mongoose = require('mongoose');
-const {Schema} = mongoose;
-var bcrypt = require('bcrypt')
+const mongoose = require("mongoose");
+const Joi = require("joi");
+const passwordComplexity = require("joi-password-complexity");
 
-const userSchema = new Schema({
-  fullname: {
-      type: String,
-      require: true
-  },
-  email: {
-    type: String,
-    require: true,
-    unique: true
-},
-  password: {
-      type: String,
-      require: true
-  }
-})
-userSchema.pre('save', function (next) {
-  var user = this;
-  if (this.isModified('password') || this.isNew) {
-      bcrypt.genSalt(10, function (err, salt) {
-          if (err) {
-              return next(err)
-          }
-          bcrypt.hash(user.password, salt, function (err, hash) {
-              if (err) {
-                  return next(err)
-              }
-              user.password = hash;
-              next()
-          })
-      })
-  }
-  else {
-      return next()
-  }
-})
-userSchema.methods.comparePassword = function (passw, cb) {
-  bcrypt.compare(passw, this.password, function (err, isMatch) {
-      if(err) {
-          return cb(err)
-      }
-      cb(null, isMatch)
-  })
-}
-module.exports = mongoose.model('users', userSchema)
+const userSchema = new mongoose.Schema({
+	fullname: { type: String, required: true },
+	email: { type: String, required: true, unique: true },
+	password: { type: String, required: true },
+});
+
+const User = mongoose.model("users", userSchema);
+
+//register body validation
+const validate = (data) => {
+	const schema = Joi.object({
+		fullname: Joi.string().required().label("Full Name"),
+		email: Joi.string().email().required().label("Email"),
+		password: passwordComplexity().required().label("Password"),
+	});
+	return schema.validate(data);
+};
+
+//login body validation
+const validatee = (data) => {
+	const schema = Joi.object({
+	  email: Joi.string().email().required().label("Email"),
+	  password: Joi.string().required().label("Password"),
+	});
+	return schema.validate(data);
+  };
+
+module.exports = { User, validate, validatee };

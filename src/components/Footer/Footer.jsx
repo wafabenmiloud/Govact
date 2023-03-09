@@ -18,7 +18,7 @@ const Footer = () => {
   const { loggedIn } = useContext(AuthContext);
   return (
     <>
-      <div className="modal">
+      {/* <div className="modal">
         <div className="modal__icon">
           <GiMailbox />
         </div>
@@ -33,7 +33,7 @@ const Footer = () => {
             <AiOutlineSend />
           </button>
         </div>
-      </div>
+      </div> */}
       <footer>
         <div className="logo">
           <img src={logo} alt="logo" />

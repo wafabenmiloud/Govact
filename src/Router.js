@@ -27,35 +27,34 @@ function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<Home />}>
-          <Route path="/Baladiya" element={<Baladiya />} />
-          <Route path="/Actualite" element={<Actualite />} />
-          <Route path="/Khadamet" element={<Khadamet />} />
-          <Route path="/Service1" element={<Service1 />} />
-          <Route path="/Service2" element={<Service2 />} />
-          <Route path="/Service3" element={<Service3 />} />
-          <Route path="/Service4" element={<Service4 />} />
-          <Route path="/Service5" element={<Service5 />} />
-          <Route path="/S5Service3" element={<S5Service3 />} />
+          <Route path="/" element={<Home />}/>
+          <Route path="Baladiya" element={<Baladiya />} />
+          <Route path="Actualite" element={<Actualite />} />
+          <Route path="Khadamet" element={<Khadamet />} />
+          <Route path="Service1" element={<Service1 />} />
+          <Route path="Service2" element={<Service2 />} />
+          <Route path="Service3" element={<Service3 />} />
+          <Route path="Service4" element={<Service4 />} />
+          <Route path="Service5" element={<Service5 />} />
+          <Route path="S5Service3" element={<S5Service3 />} />
 
           {!loggedIn && (
             <>
-              <Route path="/SignIn" element={<SignIn />} />
-              <Route path="/SignUp" element={<SignUp />} />
+              <Route path="SignIn" element={<SignIn />} />
+              <Route path="SignUp" element={<SignUp />} />
             </>
           )}
 
           {loggedIn && (
             <>
-              <Route path="/S5Serv2" element={<S5S2Service />} />
-              <Route path="/Reclamation" element={<Reclamation />} />
-              <Route path="/Suggest" element={<Suggest />} />
-              <Route path="/Avis" element={<Avis />} />
-              <Route path="/S5Service2" element={<S5Service2 />} />
-              <Route path="/S5Service1" element={<S5Service1 />} />
+              <Route path="S5Serv2" element={<S5S2Service />} />
+              <Route path="Reclamation" element={<Reclamation />} />
+              <Route path="Suggest" element={<Suggest />} />
+              {/* <Route path="Avis" element={<Avis />} /> */}
+              <Route path="S5Service2" element={<S5Service2 />} />
+              <Route path="S5Service1" element={<S5Service1 />} />
             </>
           )}
-        </Route>
       </Routes>
     </BrowserRouter>
   );

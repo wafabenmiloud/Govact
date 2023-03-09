@@ -12,8 +12,8 @@ export default function Reclamation() {
       </Link>
       <div className="wrapper">
         <div className="card">
-          <h1>شكوى</h1>
           <form action="">
+          <h1>شكوى</h1>
             <div className="form__element">
               <h4>الاسم و اللقب</h4>
               <input
@@ -41,8 +41,8 @@ export default function Reclamation() {
               <h4>ارسال</h4>
             </button>
           </form>
+
         </div>
-        <div className="rlogo"><img src={img} alt="rlogo" /></div>
       </div>
     </div>
   );

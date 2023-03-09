@@ -18,7 +18,7 @@
 .body1 .card__wrapper .card {
   width: 50%;
   background-color: white;
-  box-shadow: 0 0 20px 8px var(--color-primary);
+  box-shadow: 0 0 4px 1px var(--color-primary);
 }
 .body1 .card__wrapper .card h1 {
   text-align: center;

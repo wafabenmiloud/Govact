@@ -9,9 +9,9 @@ export default function Avis() {
     <>
       <Header title="استطلاعات الرأي" description="" img={img} />
       <form className="question__wrapper">
-        <Question question="    هل انت راض عن مستوى خدمة اصدار التراخيص؟" />
-        <Question question="    هل تساند حملة مع قنص الكلاب السائبة ؟ " />
-        <Question question="    هل انت راض عن مستوى خدمة البلدية  ؟" /><br/>
+        <Question question="    هل انت راض عن مستوى خدمة اصدار التراخيص؟" /><br/><br/>
+        <Question question="    هل تساند حملة مع قنص الكلاب السائبة ؟ " /><br/><br/>
+        <Question question="    هل انت راض عن مستوى خدمة البلدية  ؟" /><br/><br/>
         <input className="button" type="button" value="ارسال" />
       </form>
       <Footer />

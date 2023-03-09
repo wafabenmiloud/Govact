@@ -64,7 +64,7 @@
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   box-shadow: 0 0 10px 4px black;
+   box-shadow: 0 0 4px 1px black;
 
 }
 .containr__img{width: 30%;

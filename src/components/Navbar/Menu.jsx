@@ -1,6 +1,6 @@
 import React, { useRef, useState,useContext  } from "react";
 import "./Nav.css";
-import { AiFillHome, AiOutlineMenu } from "react-icons/ai";
+import { AiFillHome, AiOutlineMenu, AiOutlineLogout } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
 import {BiDownArrow, BiUpArrow} from "react-icons/bi";
@@ -230,12 +230,12 @@ export default function Menu() {
               {
                 dropdown2 && (
                   <ul className="submenu">
-                  <li>
+                  {/* <li>
                     <Link className="navbar__link" to="/Avis">
                       {" "}
                       استطلاعات الرأي
                     </Link>
-                  </li>
+                  </li> */}
                   <li>
                     <Link className="navbar__link" to="/Suggest">
                       مقترحات
@@ -253,7 +253,7 @@ export default function Menu() {
     
               <div className="cta">
                 <button onClick={logout} className="btn">
-                   خروج
+                  <AiOutlineLogout id="logout"/>
                 </button>
               </div>
               <button className="navbar__btn close" onClick={showNavbar}>

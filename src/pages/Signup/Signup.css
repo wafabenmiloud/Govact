@@ -1,12 +1,12 @@
 
 .body .wrapper {
-  width: 100%;
+  width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-flow: wrap;
 
-  height: 100vh;
+  height: 70vh;
 }
 .body .navbar_home {
   color: var(--color-bg);
@@ -33,7 +33,7 @@
 .body .wrapper .card {
   width: 40%;
   background-color: white;
-  box-shadow: 0 0 20px 8px var(--color-bg);
+  box-shadow: 0 0 10px 1px var(--color-bg);
 }
 .body .wrapper .card h1 {
   text-align: center;

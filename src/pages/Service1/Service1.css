@@ -9,7 +9,6 @@
 #open{
     margin: 3% 2% 3% 2%;
     padding: 2%;
-    box-shadow: 0 0 10px 8px var(--color-bg);
 }
 #titl{
     font-size: 130%;

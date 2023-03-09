@@ -1,0 +1,25 @@
+//citoyen
+permis
+	1.check
+info
+	2.add
+	3.get
+
+suggestion
+	4.add
+	5.update
+	6.get
+	7.delete
+
+reclamation
+	8.add
+
+//admin
+news
+	9.add
+	10.update
+	11.get
+	12.delete
+
+reclamation
+    13.get

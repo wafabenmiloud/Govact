@@ -9,6 +9,11 @@ nav {
   width: 100%;
   
 }
+#logout{
+  font-size: 1.4rem;
+
+}
+
 /*ul*/
 .navbar__menu {
   display: flex;

@@ -16,7 +16,7 @@ export default function Menu() {
   const navigate = useNavigate();
 
   async function logout() {
-    await axios.get("http://localhost:2000/logout");
+    await axios.get("https://govact-server.onrender.com/logout");
     await getLoggedIn();
     navigate("/");
 
@@ -87,27 +87,11 @@ export default function Menu() {
                       الشؤون الاقتصادية
                     </Link>
                   </li>
-                  <li onMouseEnter={handleDropdown3} onMouseLeave={handleDropdown3}>
-                    <Link className="navbar__link" to="/Service5" >
-                      {" "}
-                      خدمات على الخط
-                      {
-                    dropdown3 ? <BiDownArrow className="dropdown__icon"/>:<BiUpArrow className="dropdown__icon"/>
-                  }
-    
-                    </Link>
-                    {
-                      dropdown3 && (
-                        <ul className="submenu2">
-                   
-                      <li>
-                        <Link className="navbar__link" to="/S5Service3">
+
+                  <li>
+                  <Link className="navbar__link" to="/S5Service3">
                           مثال التهيئة العمرانية
                         </Link>
-                      </li>
-                    </ul>
-                      )
-                    }
                   </li>
                 </ul>
                   )

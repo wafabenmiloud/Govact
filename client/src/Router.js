@@ -18,7 +18,7 @@ import Suggest from "./pages/Suggest/Suggest";
 import Avis from "./pages/Avis/Avis";
 import Reclamation from "./pages/Reclamation/Reclamation";
 import S5S2Service from "./pages/S5S2Service/S5S2Service";
-
+import Admin from "./pages/admin/Admin/Admin";
 import AuthContext from "./context/AuthContext";
 
 function Router() {
@@ -35,8 +35,8 @@ function Router() {
           <Route path="Service2" element={<Service2 />} />
           <Route path="Service3" element={<Service3 />} />
           <Route path="Service4" element={<Service4 />} />
-          <Route path="Service5" element={<Service5 />} />
           <Route path="S5Service3" element={<S5Service3 />} />
+          <Route path="Admin" element={<Admin />} />
 
           {!loggedIn && (
             <>
@@ -47,6 +47,8 @@ function Router() {
 
           {loggedIn && (
             <>
+                      <Route path="Service5" element={<Service5 />} />
+
               <Route path="S5Serv2" element={<S5S2Service />} />
               <Route path="Reclamation" element={<Reclamation />} />
               <Route path="Suggest" element={<Suggest />} />

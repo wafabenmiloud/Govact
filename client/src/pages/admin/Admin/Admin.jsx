@@ -1,19 +1,13 @@
 import React, { useContext, useState } from "react";
-import "./Signup.css";
-import { AiFillHome } from "react-icons/ai";
-import { Link } from "react-router-dom";
-import llogo from "../../assets/signinleft.svg";
-import rlogo from "../../assets/signinright.svg";
+import "./Admin.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import AuthContext from "../../context/AuthContext";
+import {AiFillLock} from "react-icons/ai"
 
-
-export default function Signin() {
-  const { getLoggedIn } = useContext(AuthContext);
+export default function Admin() {
 	const navigate = useNavigate();
 
-  const [data, setData] = useState({ email: "", password: "" });
+  const [data, setData] = useState({pass:""});
 	const [error, setError] = useState("");
 
 	const handleChange = ({ currentTarget: input }) => {
@@ -23,11 +17,10 @@ export default function Signin() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "https://govact-server.onrender.com/login";
+			const url = "https://govact-server.onrender.com/admin";
 			await axios.post(url, data);
-			await getLoggedIn();
-			navigate('/');
-			
+      
+      
 		} catch (error) {
 			if (
 				error.response &&
@@ -39,18 +32,26 @@ export default function Signin() {
 		}
 	};
   return (
-    <div className="body">
-      <Link to="/" className="navbar_home">
-        <AiFillHome />
-      </Link>
+    <div className="admin">
+      
       <div className="wrapper">
-        <div className="llogo">
-          <img src={llogo} alt="llogo" />
-        </div>
         <div className="card">
-          <h1> الدخول</h1>
+        <AiFillLock size={30} color="palevioletred"/>
+
           <form onSubmit={handleSubmit}>
-            <div className="form__element">
+            
+          <div className="form__element">
+              <h4> الرمز</h4>
+              <input
+                required
+                type="password"
+                name="pass"
+                onChange={handleChange}
+                value={data.pass}
+                dir="rtl"
+              />
+            </div>
+            {/* <div className="form__element">
               <h4>البريد الالكتروني</h4>
               <input
                 required
@@ -58,7 +59,6 @@ export default function Signin() {
                 name="email"
                 onChange={handleChange}
                 value={data.email}
-                placeholder="البريد الالكتروني"
                 dir="rtl"
               />
             </div>
@@ -70,23 +70,15 @@ export default function Signin() {
                 name="password"
                 onChange={handleChange}
                 value={data.password}
-                placeholder="كلمة السر"
                 dir="rtl"
               />
-            </div>
+            </div> */}
             {error && <div className="error">{error}</div>}
 
 						<button type="submit">
               <h4>دخول</h4>
             </button>
-            <Link className="link" to="/SignUp">
-              {" "}
-              لا تملك حساب؟ إشترك الآن
-            </Link>
           </form>
-        </div>
-        <div className="rlogo">
-          <img src={rlogo} alt="rlogo" />
         </div>
       </div>
     </div>

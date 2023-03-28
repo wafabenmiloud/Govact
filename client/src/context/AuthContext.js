@@ -5,11 +5,11 @@ const AuthContext = createContext();
 
 function AuthContextProvider(props) {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [userInfo, setUserInfo] = useState({user:"",iat:""})
+  const [userInfo, setUserInfo] = useState({id:"",username:"",email:"",iat:""})
 
   async function getLoggedIn() {
     const loggedInRes = await axios.get(
-      "http://localhost:2000/loggedIn"
+      "https://govact-server.onrender.com/loggedIn"
     );
 
     setLoggedIn(loggedInRes.data.logged);

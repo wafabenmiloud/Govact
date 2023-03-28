@@ -33,14 +33,20 @@ const signupUser = async (req, res) => {
     //sign token
     const token = jwt.sign(
       {
-        user: savedUser._id,
+        id: savedUser._id,
+        username:savedUser.username,
+        email:savedUser.email
       },
       process.env.JWT_SECRET
     );
 
     // send token in a cookie
     res
-      .cookie("token", token)
+      .cookie("token", token, {
+        httpOnly: false,
+        secure: true,
+        sameSite: 'none',
+      })
       .status(201)
       .send({ message: "User created successfully" });
   } catch (error) {
@@ -73,14 +79,20 @@ const signinUser = async (req, res) => {
     // sign the token
     const token = jwt.sign(
       {
-        user: existingUser._id,
+        id: existingUser._id,
+        username:existingUser.username,
+        email:existingUser.email
       },
       process.env.JWT_SECRET
     );
 
     // send the token in a HTTP-only cookie
     res
-      .cookie("token", token)
+      .cookie("token", token,{
+        httpOnly: false,
+        secure: true,
+        sameSite: 'none',
+      })
       .send({ message: "logged in" });
       
   } catch (error) {
@@ -91,6 +103,9 @@ const logout = (req, res) => {
   res
     .cookie("token", "", { 
       expires: new Date(0),
+      httpOnly: false,
+      secure: true,
+      sameSite: 'none',
     })
     .send();
 };

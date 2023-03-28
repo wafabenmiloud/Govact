@@ -8,7 +8,7 @@
 /server/.env
 # testing
 /coverage
-
+todo.txt
 # production
 /build
 

@@ -1,8 +1,11 @@
 const mongoose = require("mongoose");
 
 const reclamationSchema = new mongoose.Schema({
-	fullname: { type: String, required: true },
-	reclamation: { type: String, required: true},
+	content:String,
+	cover:String,
+	summary:String,
+	author:{type:mongoose.Schema.Types.ObjectId, ref:'users'},
+
 });
 
 const Reclamation = mongoose.model("reclamations", reclamationSchema);
